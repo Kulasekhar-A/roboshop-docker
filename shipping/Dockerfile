@@ -1,7 +1,7 @@
 FROM maven:3.8.8
 WORKDIR /app
 COPY pom.xml .
-COPY src .
+COPY src . /src
 RUN mvn clean package -DskipTests 
 RUN mv target/shipping-1.0.jar shipping.jar
 ENV CART_ENDPOINT=cart:8080 \
