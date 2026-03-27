@@ -1,9 +1,9 @@
 FROM maven:3.8.8
 WORKDIR /app
 COPY pom.xml .
-RUN mvn clean package
 COPY java .
 COPY resources .
+RUN mvn clean package -DskipTests && mv target/shipping-1.0.jar shipping.jar
 ENV CART_ENDPOINT=cart:8080 \
     DB_HOST=mysql
 CMD [ "java", "-jar","shipping.jar"]
