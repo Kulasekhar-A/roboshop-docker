@@ -2,7 +2,7 @@ FROM python:3.9
 WORKDIR /app
 COPY *.py .
 COPY payment.ini .
-COPY requirements.text .
+COPY requirements.txt .
 ENV CART_HOST=cart \
     CART_PORT=8080 \
     USER_HOST=user \
