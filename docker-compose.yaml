@@ -17,6 +17,12 @@ services :
     container_name: cart
     depends_on:
     - redis
+  shipping:
+    build: ./shipping
+    image: annurukulasekhar/shipping:1.0.0
+    container_name: shipping
+    depends_on:
+    - mysql
   frontend:
     build: ./frontend
     image: annurukulasekhar/frontend:1.0.0

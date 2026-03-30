@@ -1,4 +1,5 @@
-FROM maven:3.8.8
+FROM maven:3.9.14
+EXPOSE 8080
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
