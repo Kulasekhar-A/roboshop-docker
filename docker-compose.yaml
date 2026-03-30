@@ -11,18 +11,21 @@ services :
     container_name: user
     depends_on:
     - redis
+    - mongodb
   cart:
     build: ./cart
     image: annurukulasekhar/cart:1.0.0
     container_name: cart
     depends_on:
     - redis
+    - catalogue
   shipping:
     build: ./shipping
     image: annurukulasekhar/shipping:1.0.0
     container_name: shipping
     depends_on:
     - mysql
+    - cart
   frontend:
     build: ./frontend
     image: annurukulasekhar/frontend:1.0.0
@@ -33,6 +36,8 @@ services :
     - catalogue
     - user
     - cart
+    - shipping
+    - payment
   mongodb:
     build: ./mongodb # it moves to mongodb directory
     image: annurukulasekhar/mongodb:1.0.0 #docker build -t annurukulasekhar/mongodb:1.0.0
@@ -44,6 +49,13 @@ services :
     build: ./mysql
     image: annurukulasekhar/mysql:1.0.0
     container_name: mysql
+  rabbitmq:
+    image: rabbitmq:3
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+    container_name: rabbitmq
+   
 networks:
   default: 
     driver: bridge
