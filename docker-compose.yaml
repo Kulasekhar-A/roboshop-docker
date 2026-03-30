@@ -11,6 +11,12 @@ services :
     container_name: user
     depends_on:
     - redis
+  cart:
+    build: ./cart
+    image: annurukulasekhar/cart:1.0.0
+    container_name: cart
+    depends_on:
+    - redis
   frontend:
     build: ./frontend
     image: annurukulasekhar/frontend:1.0.0
@@ -20,6 +26,7 @@ services :
     depends_on:
     - catalogue
     - user
+    - cart
   mongodb:
     build: ./mongodb # it moves to mongodb directory
     image: annurukulasekhar/mongodb:1.0.0 #docker build -t annurukulasekhar/mongodb:1.0.0
