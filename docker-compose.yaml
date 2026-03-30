@@ -37,7 +37,7 @@ services :
     - user
     - cart
     - shipping
-    - payment
+    
   mongodb:
     build: ./mongodb # it moves to mongodb directory
     image: annurukulasekhar/mongodb:1.0.0 #docker build -t annurukulasekhar/mongodb:1.0.0
