@@ -11,10 +11,8 @@ services :
       dockerfile: mongodb.Dockerfile # it moves to mongodb directory
     image: annurukulasekhar/mongodb:1.0.0 #docker build -t annurukulasekhar/mongodb:1.0.0
     container_name: mongodb
-  
-
-  networks:
-    default: 
-      driver: bridge
-      name: roboshop
-      external: false #if true, you need to create manually
+networks:
+  default: 
+    driver: bridge
+    name: roboshop
+    external: false #if true, you need to create manually
