@@ -8,7 +8,7 @@ RUN pip install -r requirements.txt
 FROM python:3.9-alpine
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /app /app/
+COPY --from=builder /app /app
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 RUN chown -R roboshop:roboshop /app
 USER roboshop
