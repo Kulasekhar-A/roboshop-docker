@@ -5,7 +5,7 @@ COPY payment.ini .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-FROM python:33.9-alpine
+FROM python:3.9-alpine
 WORKDIR /app
 EXPOSE 8080
 COPY --from=builder /app /app/
