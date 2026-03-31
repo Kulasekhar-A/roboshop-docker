@@ -90,4 +90,4 @@ volumes:
   mongodb: # docker volume create mongodb
   redis:
   mysql:
-  rabbittmq:
+  rabbitmq:
