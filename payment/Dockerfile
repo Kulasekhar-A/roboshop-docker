@@ -1,13 +1,13 @@
 FROM python:3.9.25-alpine3.22 AS builder
 WORKDIR /app
-RUN apk add --no-cache build-base linux-headers pcre-dev
+RUN apk add --no-cache build-base linux-headers pcre2-dev
 COPY requirements.txt .
 RUN pip install --prefix=/install -r requirements.txt
 
 FROM python:3.9.25-alpine3.22
 WORKDIR /app
 EXPOSE 8080
-RUN apk add --no-cache pcre
+RUN apk add --no-cache pcre2
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 RUN chown -R roboshop:roboshop /app
 COPY --from=builder /install /usr/local 
