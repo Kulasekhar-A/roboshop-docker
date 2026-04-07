@@ -1,6 +1,6 @@
 FROM python:3.9.25-alpine3.22 AS builder
 WORKDIR /app
-RUN apk iupdate && apk add --no-cache build-base linux-headers pcre-dev
+RUN apk update && apk add --no-cache build-base linux-headers pcre-dev
 COPY requirements.txt .
 RUN pip install --prefix=/install -r requirements.txt
 
